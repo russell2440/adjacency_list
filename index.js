@@ -1,16 +1,26 @@
 class graph{
   constructor() {
-
+    this.node_count = 0;
+    this.adjacency_list = {};
   }
   add_vertex(node){
-
+    this.adjacency_list[node] = [];
   }
   add_edge(node1, node2){
-
+    this.adjacency_list[node1].push(node2);
+    this.adjacency_list[node2].push(node1);
   }
   show_connections(){
-
-    //console.log(node + "-->" + connections);
+    const nodes = Object.keys(this.adjaceny_list);
+    for (let node of nodes){
+      let adjacent_nodes = this.adjacency_list[node];
+      let adjacent_nodes_str = "";
+      let adjacent_node;
+      for(adjacent_node of adjacent_nodes){
+        adjacent_nodes_str += adjacent_node + " "
+      }
+    }
+    console.log(node + "-->" + adjacent_nodes_str);
   }
 }
 
